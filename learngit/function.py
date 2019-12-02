@@ -62,7 +62,7 @@ def deep_learning(model, trainloader, epochs,  criterion, optimizer):
             if steps % 40 == 0 or (steps) == len(trainloader):
                 # 测试准确性
                 print('EPOCHS : {}/{}'.format(e + 1, epochs),
-                      'Loss : {:.4f}'.format(running_loss/40))
+                      'Loss : {:.4f}'.format(running_loss/steps))
                 print('the accuracy is {:.4f}'.format(100 * correct / total))
 
 
