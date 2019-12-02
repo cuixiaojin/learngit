@@ -74,12 +74,12 @@ def main():
     criterion = nn.NLLLoss()
     optimizer = optim.Adam(fmodel.classifier.parameters(), lr=0.001)
 
-    deep_learning(fmodel, trainloader, 5, criterion, optimizer)
+    deep_learning(fmodel, trainloader, 1, criterion, optimizer)
     accuracy_test(fmodel,testloader)
 
 
 
-    network_saving()
+    network_saving(fmodel)
 
 
 if __name__ == "__main__":

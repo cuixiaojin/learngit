@@ -11,6 +11,7 @@ from torchvision import datasets, transforms, models
 预测训练集的准确率
 '''
 def accuracy_test(model, dataloader):
+    print('开始对测试集预测')
     correct = 0
     total = 0
     with torch.no_grad():
@@ -25,7 +26,7 @@ def accuracy_test(model, dataloader):
 
             correct += (predicted == labels).sum().item()
 
-    print('the accuracy is {:.4f}'.format(correct / total))
+    print('the accuracy is {:.4f}'.format(100*correct / total))
 
 
 # 创建深度学习功能
@@ -35,6 +36,7 @@ def accuracy_test(model, dataloader):
 
 
 def deep_learning(model, trainloader, epochs,  criterion, optimizer):
+    print('开始训练')
     epochs = epochs
 
     steps = 0
@@ -80,8 +82,9 @@ def network_loading(model, ckp_path):
     print('The Network is Loaded')
 
 
-def network_saving():
-    torch.save(fmodel.state_dict(), 't.pth')
+def network_saving(model):
+    torch.save(model.state_dict(), 't.pth')
 
     print('The Network is Saved')
+
 
